@@ -1,70 +1,83 @@
+import time
+from pymongo import MongoClient
 import csv
-import random
-import datetime
+from datetime import datetime
+import os
 
-# Listas para gerar dados variados
-categorias = [
-    "Informática", "Eletrônicos", "Eletrodomésticos", "Móveis", 
-    "Roupas", "Acessórios", "Livros", "Brinquedos", "Esportes"
+# Verificar se o arquivo existe
+file_path = 'datas/tmdb_top_movies.csv'  # Use / ou \\ ou raw string
+if not os.path.exists(file_path):
+    print(f"Erro: O arquivo {file_path} não foi encontrado. Verifique o caminho.")
+    exit(1)
+
+# Conexão com o MongoDB
+client = MongoClient('mongodb://localhost:27017/')
+db = client['movies']
+collection = db['movies']
+
+# Inserção em massa
+start_time = time.time()
+documents = []
+with open(file_path, 'r', encoding='utf-8') as f:  # Adicionei encoding='utf-8' para evitar problemas de codificação
+    reader = csv.DictReader(f)
+    for row in reader:
+        row['id'] = int(row['id'])
+        row['popularity'] = float(row['popularity'])
+        row['vote_average'] = float(row['vote_average'])
+        row['vote_count'] = int(row['vote_count'])
+        row['release_date'] = datetime.strptime(row['release_date'], '%Y-%m-%d')
+        documents.append(row)
+collection.insert_many(documents)
+end_time = time.time()
+tempo_decorrido = end_time - start_time
+
+print(f"Tempo de insercao: {tempo_decorrido} segundos")
+
+with open('resultados/results.csv', 'a', newline='') as csvfile:
+    writer = csv.writer(csvfile)
+    writer.writerow([f'Insercao em Massa', {tempo_decorrido}])
+
+import csv
+import time
+from pymongo import MongoClient
+
+client = MongoClient('mongodb://localhost:27017/')
+db = client['movies']
+collection = db['movies']
+
+# Consulta simples: buscar filme por título
+start_time = time.time()
+result = collection.find_one({"title": "Inception"})  # Substitua pelo título real do dataset
+# print(result)
+end_time = time.time()
+print(f"Tempo de consulta simples (título): {end_time - start_time} segundos")
+
+# Salvar no CSV
+with open('resultados/results.csv', 'a', newline='') as csvfile:
+    writer = csv.writer(csvfile)
+    writer.writerow(['Consulta Simples - Titulo', end_time - start_time])
+
+import csv
+import time
+from datetime import datetime
+from pymongo import MongoClient
+
+client = MongoClient('mongodb://localhost:27017/')
+db = client['movies']
+collection = db['movies']
+
+# Consulta complexa: média de votos por ano
+pipeline = [
+    {"$group": {"_id": {"$year": "$release_date"}, "avg_vote": {"$avg": "$vote_average"}}},
+    {"$sort": {"_id": 1}}
 ]
-marcas = ["Tech", "Super", "Pro", "Max", "Nova", "Eco", "Prime", "Ultra"]
-tipos_produtos = [
-    "Notebook", "Smartphone", "Tablet", "Monitor", "Teclado", 
-    "Televisão", "Geladeira", "Sofá", "Cadeira", "Camiseta", 
-    "Tênis", "Mochila", "Livro", "Bola", "Raquete"
-]
+start_time = time.time()
+result = list(collection.aggregate(pipeline))
+end_time = time.time()
+print(result)
+print(f"Tempo de consulta complexa (média por ano): {end_time - start_time} segundos")
 
-# Função para gerar nome de produto
-def gerar_nome():
-    marca = random.choice(marcas)
-    tipo = random.choice(tipos_produtos)
-    return f"{marca} {tipo}"
-
-# Função para gerar preço
-def gerar_preco(categoria):
-    if categoria in ["Informática", "Eletrônicos"]:
-        return round(random.uniform(500, 5000), 2)
-    elif categoria == "Eletrodomésticos":
-        return round(random.uniform(300, 3000), 2)
-    elif categoria == "Móveis":
-        return round(random.uniform(200, 2000), 2)
-    elif categoria in ["Roupas", "Acessórios"]:
-        return round(random.uniform(20, 200), 2)
-    elif categoria in ["Livros", "Brinquedos", "Esportes"]:
-        return round(random.uniform(10, 150), 2)
-    return round(random.uniform(50, 1000), 2)
-
-# Função para gerar data de compra aleatória
-def gerar_data_compra():
-    start_date = datetime.datetime(2023, 1, 1)
-    end_date = datetime.datetime(2025, 6, 28)
-    delta = end_date - start_date
-    random_days = random.randint(0, delta.days)
-    data = start_date + datetime.timedelta(days=random_days)
-    return data.strftime("%Y-%m-%d")
-
-# Gerar 1000 registros
-registros = []
-for i in range(1, 1001):
-    categoria = random.choice(categorias)
-    preco = gerar_preco(categoria)
-    quantidade = random.randint(1, 50)
-    valor = round(preco * quantidade, 2)
-    registro = {
-        "id": i,
-        "nome": gerar_nome(),
-        "preco": preco,
-        "categoria": categoria,
-        "quantidade": quantidade,
-        "valor": valor,
-        "data_compra": gerar_data_compra()
-    }
-    registros.append(registro)
-
-# Escrever para arquivo CSV
-with open("produtos.csv", "w", newline="", encoding="utf-8") as file:
-    writer = csv.DictWriter(file, fieldnames=["id", "nome", "preco", "categoria", "quantidade", "valor", "data_compra"])
-    writer.writeheader()
-    writer.writerows(registros)
-
-print("Arquivo produtos.csv gerado com 1000 registros.")
+# Salvar no CSV
+with open('resultados/results.csv', 'a', newline='') as csvfile:
+    writer = csv.writer(csvfile)
+    writer.writerow(['Consulta Complexa - Média por Ano', end_time - start_time])
