@@ -10,7 +10,7 @@ repeticoes = 1
 start_total = time.time()
 for i in range(repeticoes):
     
-    file_path = 'datas/movies_50000_com_id.csv'
+    file_path = 'datas/movies_50000.csv'
     # Verificar se o arquivo existe
     if not os.path.exists(file_path):
         print(f"Erro: O arquivo {file_path} não foi encontrado. Verifique o caminho.")
@@ -29,7 +29,9 @@ for i in range(repeticoes):
         for row in reader:
             row['id'] = int(row['id'])
             row['year'] = int(row['year'])
-            row['rating'] = float(row['rating'])
+            row['popularity'] = float(row['popularity'])
+            row['vote_average'] = float(row['vote_average'])
+            row['vote_count'] = int(row['vote_count'])
             documents.append(row)
     collection.insert_many(documents)
     end_time = time.time()
@@ -39,7 +41,7 @@ for i in range(repeticoes):
 
     with open('resultados/results.csv', 'a', newline='') as csvfile:
         writer = csv.writer(csvfile)
-        writer.writerow([f'Insercao em Massa ', {tempo_decorrido}])
+        writer.writerow([f'Insercao em Massa 50k registros', {tempo_decorrido}])
 
 
 

@@ -66,6 +66,7 @@ for i in range(repeticoes):
         writer = csv.writer(csvfile)
         writer.writerow(['Consulta Complexa - Média de votos por década' , end_consulta1 - start_consulta1])
         writer.writerow(['Consulta Complexa - Top 5 anos com maior média de popularidade' , end_consulta2 - start_consulta2])
+        writer.writerow(['Média de Segundos para cada Consulta: ', (total_consulta1 + total_consulta2) / 2])
 
 
 end_total = time.time()

@@ -32,6 +32,7 @@ for i in range(repeticoes):
         writer = csv.writer(csvfile)
         writer.writerow(['Removendo filmes com popularidade menor que 20', total_consulta1])
         writer.writerow(['Removendo filmes com média de votos inferior a 4.5', total_consulta2])
+        writer.writerow(['Média de Segundos para cada Consulta: ', (total_consulta1 + total_consulta2) / 2])
 
 end_total_tempo = time.time()
 

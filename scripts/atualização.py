@@ -39,6 +39,7 @@ for i in range(repeticoes):
         writer = csv.writer(csvfile)
         writer.writerow(['Atualização - Notas (+0.2) para filmes com mais de 10.000 votos', total_consulta1])
         writer.writerow(['Atualização - Aumentando popularidade de filmes lançados em 2020', total_consulta2])
+        writer.writerow(['Média de Segundos para cada Consulta: ', (total_consulta1 + total_consulta2) / 2])
 end_tempo_total = time.time()
 
 total = end_tempo_total - start_tempo_total

@@ -1,9 +1,0 @@
-Insercao em Massa ,{0.22916316986083984}
-Consulta Simples - Filmes com média de avaliação acima de 8.0 ,0.01715850830078125
-Consulta Simples - Filmes lançados depois de 2010 ,0.0007233619689941406
-Consulta Complexa - Média de votos por década,0.034010887145996094
-Consulta Complexa - Top 5 anos com maior média de popularidade,0.008545875549316406
-Atualização - Notas (+0.2) para filmes com mais de 10.000 votos,0.10537910461425781
-Atualização - Aumentando popularidade de filmes lançados em 2020,0.007848978042602539
-Removendo filmes com popularidade menor que 20,0.021554231643676758
-Removendo filmes com média de votos inferior a 4.5,1751345690.9349196
