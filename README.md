@@ -77,6 +77,6 @@ Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou enviar
 
 #### 📄 Trabalho realizado por fins de estudo
 *Faculdade Unisales* -
-*Mateus Cristo da Silva* - 
-*Mikaella Cintra* - 
-*Segunda parte do trabalho:* (https://github.com/MikaCintra/Benchmark-MySql)
+*Mateus Cristo da Silva*
+
+*Segunda parte do trabalho* - *Mikaella Cintra*: (https://github.com/MikaCintra/Benchmark-MySql)
