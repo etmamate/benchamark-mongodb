@@ -61,6 +61,9 @@ for i in range(repeticoes):
 
     end_consulta2 = time.time()
 
+    total_consulta1 = end_consulta1 - start_consulta1
+    total_consulta2 = end_consulta2 - start_consulta2
+
     # Salvar no CSV
     with open('resultados/results.csv', 'a', newline='') as csvfile:
         writer = csv.writer(csvfile)
