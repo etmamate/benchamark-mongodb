@@ -1,30 +1,9 @@
-Insercao em Massa,{0.22100424766540527}
-Insercao em Massa,{0.24715471267700195}
-Insercao em Massa,{0.18355584144592285}
-Insercao em Massa,{0.24405407905578613}
-Insercao em Massa,{0.18904805183410645}
-Insercao em Massa,{0.18371891975402832}
-Insercao em Massa,{0.21413540840148926}
-Insercao em Massa,{0.2698681354522705}
-Insercao em Massa,{0.2606387138366699}
-Insercao em Massa,{0.29209208488464355}
-Consulta Simples - Titulo,0.0056612491607666016
-Consulta Simples - Titulo,0.002942800521850586
-Consulta Simples - Titulo,0.015314340591430664
-Consulta Simples - Titulo,0.014909744262695312
-Consulta Simples - Titulo,0.013918638229370117
-Consulta Simples - Titulo,0.01212620735168457
-Consulta Simples - Titulo,0.01414799690246582
-Consulta Simples - Titulo,0.0028586387634277344
-Consulta Simples - Titulo,0.027231216430664062
-Consulta Simples - Titulo,0.01213836669921875
-Consulta Complexa - Média por Ano,0.17864108085632324
-Consulta Complexa - Média por Ano,0.15573740005493164
-Consulta Complexa - Média por Ano,0.19495177268981934
-Consulta Complexa - Média por Ano,0.1953139305114746
-Consulta Complexa - Média por Ano,0.16328144073486328
-Consulta Complexa - Média por Ano,0.17485737800598145
-Consulta Complexa - Média por Ano,0.16964459419250488
-Consulta Complexa - Média por Ano,0.14105963706970215
-Consulta Complexa - Média por Ano,0.17437148094177246
-Consulta Complexa - Média por Ano,0.1590127944946289
+Insercao em Massa ,{0.22916316986083984}
+Consulta Simples - Filmes com média de avaliação acima de 8.0 ,0.01715850830078125
+Consulta Simples - Filmes lançados depois de 2010 ,0.0007233619689941406
+Consulta Complexa - Média de votos por década,0.034010887145996094
+Consulta Complexa - Top 5 anos com maior média de popularidade,0.008545875549316406
+Atualização - Notas (+0.2) para filmes com mais de 10.000 votos,0.10537910461425781
+Atualização - Aumentando popularidade de filmes lançados em 2020,0.007848978042602539
+Removendo filmes com popularidade menor que 20,0.021554231643676758
+Removendo filmes com média de votos inferior a 4.5,1751345690.9349196

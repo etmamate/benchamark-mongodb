@@ -4,9 +4,13 @@ import csv
 from datetime import datetime
 import os
 
-for i in range(10):
+repeticoes = 1
+
+
+start_total = time.time()
+for i in range(repeticoes):
     
-    file_path = 'datas/tmdb_top_movies.csv'  # Use / ou \\ ou raw string
+    file_path = 'datas/movies_10000_com_id.csv'  # Use / ou \\ ou raw string
     # Verificar se o arquivo existe
     if not os.path.exists(file_path):
         print(f"Erro: O arquivo {file_path} não foi encontrado. Verifique o caminho.")
@@ -24,10 +28,8 @@ for i in range(10):
         reader = csv.DictReader(f)
         for row in reader:
             row['id'] = int(row['id'])
-            row['popularity'] = float(row['popularity'])
-            row['vote_average'] = float(row['vote_average'])
-            row['vote_count'] = int(row['vote_count'])
-            row['release_date'] = datetime.strptime(row['release_date'], '%Y-%m-%d')
+            row['year'] = int(row['year'])
+            row['rating'] = float(row['rating'])
             documents.append(row)
     collection.insert_many(documents)
     end_time = time.time()
@@ -37,4 +39,10 @@ for i in range(10):
 
     with open('resultados/results.csv', 'a', newline='') as csvfile:
         writer = csv.writer(csvfile)
-        writer.writerow([f'Insercao em Massa', {tempo_decorrido}])
+        writer.writerow([f'Insercao em Massa 10k registros:', {tempo_decorrido}])
+
+end_total = time.time()
+total_final = end_total - start_total
+
+print(f"Segundos Totais: {total_final}")
+print(f"Média de segundos totais: {total_final / repeticoes}")
