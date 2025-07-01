@@ -54,8 +54,8 @@ text
 movie-analysis/
 ├── data                   # Pasta para arquivos de dados
 │   └── movies.csv              # Dataset de filmes
-│   └──movies_5000.csv          # Dataset de filmes
-│   └──movies_50000.csv         # Dataset de filmes
+│   └── movies_5000.csv          # Dataset de filmes
+│   └── movies_50000.csv         # Dataset de filmes
 ├── resultados
 │   └── results.csv        # Resultados de cada consulta
 ├── docs
