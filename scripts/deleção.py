@@ -25,7 +25,9 @@ for i in range(repeticoes):
     {"vote_average": {"$lt": 4.5}}
     )
     print(f"Filmes removidos: {delete_low_rating.deleted_count}")
-    total_consulta2 =  time.time()
+    end_consulta2 =  time.time()
+
+    total_consulta2 = end_consulta2 - start_consulta2
 
     # Salvar no CSV
     with open('resultados/results.csv', 'a', newline='') as csvfile:

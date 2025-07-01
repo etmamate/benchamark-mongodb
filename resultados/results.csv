@@ -1,0 +1,20 @@
+Insercao em Massa ,{0.21833133697509766}
+Consulta Simples - Filmes com média de avaliação acima de 8.0 ,0.010756731033325195
+Consulta Simples - Filmes lançados depois de 2010 ,0.0007073879241943359
+Consulta Complexa - Média de votos por década,0.07152915000915527
+Consulta Complexa - Top 5 anos com maior média de popularidade,0.013945817947387695
+Média de Segundos para cada Consulta: ,0.042737483978271484
+Atualização - Notas (+0.2) para filmes com mais de 10.000 votos,0.24183177947998047
+Atualização - Aumentando popularidade de filmes lançados em 2020,0.008418798446655273
+Média de Segundos para cada Consulta: ,0.12512528896331787
+Removendo filmes com popularidade menor que 20,0.05603289604187012
+Removendo filmes com média de votos inferior a 4.5,1751350162.5838468
+Média de Segundos para cada Consulta: ,875675081.3199399
+Insercao em Massa ,{0.39461421966552734}
+Removendo filmes com popularidade menor que 20,0.1422734260559082
+Removendo filmes com média de votos inferior a 4.5,0.29131340980529785
+Média de Segundos para cada Consulta: ,0.21679341793060303
+Insercao em Massa 5k registros:,{0.11760640144348145}
+Insercao em Massa 50k registros,{1.8961896896362305}
+Insercao em Massa 5k registros:,{0.10517501831054688}
+Insercao em Massa 50k registros,{1.1943209171295166}
