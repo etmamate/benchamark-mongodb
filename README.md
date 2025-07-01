@@ -46,7 +46,7 @@ pip install pymongo pandas
 
 ```
 bash
-python movie_analysis.py
+python script.py
 ```
 **📊 Estrutura do Projeto**
 ```
