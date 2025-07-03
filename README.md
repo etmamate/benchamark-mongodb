@@ -1,5 +1,5 @@
 # 🎬 Análise de Dados de Filmes com MongoDB
-#### Este projeto realiza análises em um conjunto de dados de filmes utilizando MongoDB, incluindo consultas simples e complexas, atualizações e operações de deleção. E comparando com banco de dados relacionais (MySQL)..
+#### Este projeto realiza análises em um conjunto de dados de filmes utilizando MongoDB, incluindo consultas simples e complexas, atualizações e operações de deleção. E comparando com banco de dados relacionais (MySQL).
 
 ### 📋 Tarefas Realizadas
 🔍 Consultas Implementadas
